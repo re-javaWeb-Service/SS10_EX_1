@@ -14,13 +14,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddCartRequest {
-    @NotNull(message = "User id is required")
+    @NotBlank(message = "User id is required")
     private String userId;
 
     @NotBlank(message = "product id is required")
     private String productId;
 
-    @Min(1)
+    @Min(value = 1, message = "Quantity must be greater than 0")
     @NotNull(message = "Quantity must be greater than 1")
     private Integer quantity;
 }
